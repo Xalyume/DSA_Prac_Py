@@ -75,4 +75,24 @@ def dfs_traversal(root):
     return
 
 
-dfs_traversal(a)
+def dfs_traversal_recursive(root):
+    # base case - if the tree/current node is empty
+    if root is None:
+        return
+
+    # Action
+    print(root.value)
+    # Left Recurse
+    dfs_traversal_recursive(root.left)
+    # Right Recurse
+    dfs_traversal_recursive(root.right)
+    # Sequence is different than with iterative method
+
+    return
+
+
+# dfs_traversal(a)
+dfs_traversal_recursive(a)
+# pre-order - a, b, d, e, c, f = in recursive method (action, recurse left, recurse right) ->  parent PRE-visited left then right children
+# post-order - d, e, b, f, c, a = in recursive method(recurse left, recurse right, action) -> children then parent
+# in-order - d, b, e, a, c, f = recursive method (recurse left, action, recurse right) -> traverse to left child, then parent, then right child
