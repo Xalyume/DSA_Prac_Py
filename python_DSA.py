@@ -96,3 +96,29 @@ dfs_traversal_recursive(a)
 # pre-order - a, b, d, e, c, f = in recursive method (action, recurse left, recurse right) ->  parent PRE-visited left then right children
 # post-order - d, e, b, f, c, a = in recursive method(recurse left, recurse right, action) -> children then parent
 # in-order - d, b, e, a, c, f = recursive method (recurse left, action, recurse right) -> traverse to left child, then parent, then right child
+
+
+# Example of doing DFS traversal recursively on sum
+
+one = Node(1)
+two = Node(2)
+three = Node(3)
+four = Node(4)
+five = Node(5)
+six = Node(6)
+
+one.left = two
+one.right = three
+two.left = four
+two.right = five
+three.right = six
+
+def sum_tree_recursion(root):
+    if root is None:
+        return 0
+
+    # return sum_tree_recursion(root.left) + root.value + sum_tree_recursion(root.right)
+    return sum_tree_recursion(root.left) + sum_tree_recursion(root.right) + root.value
+    # order of returns does not matter in this example (since we're just looking for the sum) -> order of return pertains to pre/post/in order mentioned above
+
+print(sum_tree_recursion(one))
