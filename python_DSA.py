@@ -28,3 +28,21 @@ c.right = f
 
 # Breadth first traversal - by layer - explores all nodes in the same layer before going down
 # Utilizes a queue - FIFO
+
+def bfs_traversal(root):
+    queue = [root]
+
+    while len(queue) is not 0:
+        popped_node = queue.pop(0)
+
+        print(popped_node.value)
+
+        if popped_node.left is not None:
+            queue.append(popped_node.left)
+
+        if popped_node.right is not None:
+            queue.append(popped_node.right)
+
+    return
+
+bfs_traversal(a)
