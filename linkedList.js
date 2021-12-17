@@ -15,8 +15,6 @@ class Node {
 		this.val = val;
 		this.next = null;
 	}
-
-
 }
 
 class LinkedList {
@@ -48,6 +46,38 @@ class LinkedList {
 		}
 	}
 
+	contains(target) {
+		let curr = this.head;
+		while (curr !== null) { // want to also hit the last node (tail node)
+			if (curr.val === target) {
+				return true
+			}
+			curr = curr.next;
+		}
+		return false
+	}
+
+	deleteValue(target) {
+		let curr = this.head;
+		let prev = null;
+
+		if (this.head.val === target) {
+			this.head = this.head.next;
+			return
+		}
+
+		while (curr !== null) {
+			if (curr.val === target) {
+				prev.next = curr.next
+				return
+			}
+			prev = curr
+			curr = curr.next
+		}
+
+		return
+	}
+
 }
 
 const list = new LinkedList();
@@ -56,5 +86,16 @@ list.append('b');
 list.append('c');
 list.append('d');
 list.append('e');
-console.log(list.head)
-console.log(list.traverse())
+
+// console.log(list.head)
+
+// list.traverse()
+
+// console.log(list.contains('a'))
+// console.log(list.contains(6))
+
+list.deleteValue('a')
+list.traverse()
+
+list.deleteValue('c')
+list.traverse()
