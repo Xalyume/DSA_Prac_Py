@@ -61,12 +61,14 @@ class LinkedList {
 		let curr = this.head;
 		let prev = null;
 
+		// edge case if target is first node(head) of LinkedList - detach head node and set this.head to the next node
 		if (this.head.val === target) {
 			this.head = this.head.next;
 			return
 		}
 
 		while (curr !== null) {
+			// this takes cause of potential edge case where target is last node since all nodes auto default to have a .next of null
 			if (curr.val === target) {
 				prev.next = curr.next
 				return
@@ -94,8 +96,9 @@ list.append('e');
 // console.log(list.contains('a'))
 // console.log(list.contains(6))
 
-list.deleteValue('a')
-list.traverse()
+// Test case to see if head is properly removed
+// list.deleteValue('a')
+// list.traverse()
 
 list.deleteValue('c')
 list.traverse()
