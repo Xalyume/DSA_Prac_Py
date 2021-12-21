@@ -22,7 +22,14 @@ class LinkedList:
         while current != None:
             print(current.value)
             current = current.next
-        pass
+
+    def contains(self, target):
+        current = self.head
+        while current != None:
+            if current.value == target:
+                return True
+            current = current.next
+        return False
 
 linked_list = LinkedList()
 linked_list.append('a')
@@ -31,4 +38,7 @@ linked_list.append('c')
 linked_list.append('d')
 linked_list.append('e')
 
-linked_list.traverse()
+# linked_list.traverse()
+
+print(linked_list.contains('a'))
+print(linked_list.contains('z'))
