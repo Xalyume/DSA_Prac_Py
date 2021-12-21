@@ -12,8 +12,15 @@ Time Complexity = O(nlog(n))
 */
 
 // Helper function that sorts and combines 2 sorted arrays
-function mergeSo(leftArr, rightArr) { // assume leftArr and rightArr are already sorted
+function merge(leftArr, rightArr) { // assume leftArr and rightArr are already sorted
+    const mergedArr = [];
 
+    let leftIdx = 0;
+    let rightIdx = 0;
+
+    while (leftIdx < leftArr.length) {
+        
+    }
 }
 
 // recurisve function that divides the arrays
@@ -30,7 +37,10 @@ function mergeSort(array) {
     const leftArr = array.slice(0, middleIdx); // second arg is non-inclusive
     const rightArr = array.slice(middleIdx); // goes to end of array if no second arg
 
-    return array;
+    return merge( // mergeSort splits until base case then we merge those and the continue to merge back up.
+        mergeSort(leftArr),
+        mergeSort(rightArr),
+    );
 }
 
 array1 = [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63]
