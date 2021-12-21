@@ -18,9 +18,19 @@ function merge(leftArr, rightArr) { // assume leftArr and rightArr are already s
     let leftIdx = 0;
     let rightIdx = 0;
 
-    while (leftIdx < leftArr.length) {
-        
+    while (leftIdx < leftArr.length && rightIdx < rightArr.length) {
+        if (leftArr[leftIdx] < rightArr[rightIdx]) {
+            mergedArr.push(leftArr[leftIdx]);
+            leftIdx++;
+        } else {
+            mergedArr.push(rightArr[rightIdx]);
+            rightIdx++;
+        }
     }
+
+    // this return ensures that the remaining values in either the leftArr or rightArr are also included into the final array
+    return [...mergedArr, ...leftArr.slice(leftIdx), ...rightArr.slice(rightIdx)];
+    // because the arrays are sorted, if one of the left/right arrays are "empty", the remaining values in the "non-empty" array will be greater than the last value of the mergedArr
 }
 
 // recurisve function that divides the arrays
@@ -44,4 +54,4 @@ function mergeSort(array) {
 }
 
 array1 = [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63]
-mergeSort(array1)
+console.log(mergeSort(array1))
