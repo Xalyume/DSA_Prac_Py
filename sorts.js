@@ -53,8 +53,8 @@ function mergeSort(array) {
     );
 }
 
-array1 = [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63]
-console.log(mergeSort(array1))
+array1 = [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]
+// console.log(mergeSort(array1))
 
 
 // Insertion Sort
@@ -66,3 +66,19 @@ Iterates through entire list swapping new items until it reachs the end
 
 Time Complexity = O(n**2)
 */
+
+function insertionSort(array) {
+    for (let i = 0; i < array.length; i++) { // iterates through the entirity of the array
+        for (j = i; j > 0; j--) { // looks only at every element BEFORE the current iteration of i
+            if (array[j] < array[j-1]) { // if current j value is less than value at j-1
+                // swap
+                const temp = array[j]
+                array[j] = array[j-1]
+                array[j-1] = temp
+            }
+        }
+    }
+    return array;
+}
+
+console.log(insertionSort(array1))
