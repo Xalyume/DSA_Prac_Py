@@ -62,15 +62,17 @@ array1 = [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63, 123, 43, 2, 55, 1, 234, 92]
 Builds up a sorted array at the beginning of the list.
 Begins the sorted array with the first element
 Then inspects the next element and swaps it backwards into the sorted array until it is in the sorted position
-Iterates through entire list swapping new items until it reachs the end
+Iterates through entire array/list, checking the current iteration value with every preceding value and swapping it backwards if the value preceding it is higher.
+
 
 Time Complexity = O(n**2)
 */
 
 function insertionSort(array) {
     for (let i = 0; i < array.length; i++) { // iterates through the entirity of the array
-        for (j = i; j > 0; j--) { // looks only at every element BEFORE the current iteration of i
-            if (array[j] < array[j-1]) { // if current j value is less than value at j-1 (does not need to hit array[0] since it does not have a preceding value)
+        for (j = i; j > 0; j--) { // looks only at every element BEFORE the current iteration of i (iterates backwards til 0)
+        // (does not need to hit array[0] since it does not have a preceding value)
+            if (array[j] < array[j-1]) { // if current j value is less than value at j-1
                 // swap the 2 values
                 const temp = array[j]
                 array[j] = array[j-1]
