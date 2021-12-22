@@ -55,3 +55,14 @@ function mergeSort(array) {
 
 array1 = [1, 4, 2, 8, 345, 123, 43, 32, 5643, 63]
 console.log(mergeSort(array1))
+
+
+// Insertion Sort
+/*
+Builds up a sorted array at the beginning of the list.
+Begins the sorted array with the first element
+Then inspects the next element and swaps it backwards into the sorted array until it is in the sorted position
+Iterates through entire list swapping new items until it reachs the end
+
+Time Complexity = O(n**2)
+*/
