@@ -106,14 +106,13 @@ function quickSort(array) {
         return array;
     }
 
-    const pivot = array[array.length - 1]
+    const pivot = array[array.length - 1] // Pivot point should usually be the first or last value in the array (for ease of use)
 
     const leftArr = []
     const rightArr = []
 
     for (let i = 0; i < array.length -1; i++) { // iterate through array to spread values to proper array based off of pivot
         let val = array[i]
-
         if (val <= pivot) {
             leftArr.push(val)
         } else {
@@ -121,6 +120,7 @@ function quickSort(array) {
         }
     }
 
+    // Conditionals to see how to go about doing recursion - need to make sure to add pivot since its not including in either left/rightArr
     if (leftArr.length > 0 && rightArr.length > 0) { // if both left and right array have values inside of it
         return [...quickSort(leftArr), pivot, ...quickSort(rightArr)]
     } else if (leftArr.length > 0){ // if only left array has values
