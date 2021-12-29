@@ -97,7 +97,7 @@ Pivot is normally first or last element in the array.
 
 Approach recursively - continue to partition subarrays until array lengths are 1 -> the resolutions of the recursion sorts the array.
 
-Time Complexity: O(nlog(n))
+Time Complexity = O(nlog(n))
 */
 
 function quickSort(array) {
