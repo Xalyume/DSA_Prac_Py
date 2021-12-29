@@ -83,4 +83,52 @@ function insertionSort(array) {
     return array;
 }
 
-console.log(insertionSort(array1))
+// console.log(insertionSort(array1))
+
+
+
+// Quicksort
+/*
+Divide and conquer approach.
+Pivot value is chosen in original array -> array is partitioned into 2 subarrays of values less than and greater than the pivote value
+Combine result (resolve recursion)
+
+Pivot is normally first or last element in the array.
+
+Approach recursively - continue to partition subarrays until array lengths are 1 -> the resolutions of the recursion sorts the array.
+
+Time Complexity: O(nlog(n))
+*/
+
+function quickSort(array) {
+    // Recursion base case
+    if (array.length <= 1) {
+        return array;
+    }
+
+    const pivot = array[array.length - 1]
+
+    const leftArr = []
+    const rightArr = []
+
+    for (let i = 0; i < array.length -1; i++) { // iterate through array to spread values to proper array based off of pivot
+        let val = array[i]
+
+        if (val <= pivot) {
+            leftArr.push(val)
+        } else {
+            rightArr.push(val)
+        }
+    }
+
+    if (leftArr.length > 0 && rightArr.length > 0) { // if both left and right array have values inside of it
+        return [...quickSort(leftArr), pivot, ...quickSort(rightArr)]
+    } else if (leftArr.length > 0){ // if only left array has values
+        return [...quickSort(leftArr), pivot]
+    } else { // if only irght array has values
+        return [pivot, ...quickSort(rightArr)]
+    }
+
+}
+
+console.log(quickSort(array1))
